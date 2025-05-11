@@ -8,15 +8,15 @@ const cors = require('cors');
 
 const app = express();
 
-// app.use(cors({ origin: '*' }));
-app.use(cors({ origin: 'https://mernblog-stvy.onrender.com' }));
+app.use(cors({ origin: '*' }));
+// app.use(cors({ origin: 'https://mernblog-stvy.onrender.com' }));
 app.use(route);
 
 const server = http.createServer(app);
 
 const io = new Server(server, {
-  cors: { origin: 'https://mernblog-stvy.onrender.com' },
-  // cors: { origin: '*' },
+  // cors: { origin: 'https://mernblog-stvy.onrender.com' },
+  cors: { origin: '*' },
   methods: ['GET', 'POST'],
 });
 io.on('connection', (socket) => {
